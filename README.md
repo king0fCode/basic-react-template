@@ -1,19 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Simple Bash Scripts
+## Simple Bash Scripts ######################### 
+## FileName: mkreact.sh
 #!/bin/sh
 
 if [ ! -d "$HOME"/git-sources ]; then
     mkdir "$HOME"/git-sources
 fi
-
-#cd "$HOME"/git-sources || { printf "cd failed, exiting\n" >&2;  return 1; }
 printf "AppName: "
 read -r AppName 
 
 gitsource="https://github.com/king0fCode/basic-react-template.git"
 git clone "$gitsource"  "$AppName"
-
 unset gitsource
 
 AppDir="$(pwd)/$AppName"
@@ -45,6 +43,20 @@ exit
 fi
 
 unset ans
+
+
+############################################
+
+### `add mkreact.sh bash to linux path`
+### `type this one by one on console`
+
+1 chmod u+x,g+x mkreact.sh
+2 nano .bashrc
+3 alias mkreact='/home/drcode/mkreact.sh'
+4 source ~/.bashrc
+
+### now you can run it anywhere to create react basic app.. in terminal type `mkreact` command to begin 
+##############################################
 
 
 ### `npm test`
