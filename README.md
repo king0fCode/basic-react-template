@@ -48,12 +48,9 @@ unset ans
 ############################################
 
 ### `add mkreact.sh bash to linux path`
-### `type this one by one on console`
+### `type this on console`
 
-1 chmod u+x,g+x mkreact.sh
-2 nano .bashrc
-3 alias mkreact='/home/drcode/mkreact.sh'
-4 source ~/.bashrc
+chmod u+x,g+x mkreact.sh && echo " alias mkreact='/home/drcode/mkreact.sh'" >> .bashrc && source ~/.bashrc
 
 ### now you can run it anywhere to create react basic app.. in terminal type `mkreact` command to begin 
 ##############################################
