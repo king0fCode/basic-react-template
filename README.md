@@ -1,16 +1,51 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Simple Bash Scripts
+#!/bin/sh
 
-In the project directory, you can run:
+if [ ! -d "$HOME"/git-sources ]; then
+    mkdir "$HOME"/git-sources
+fi
 
-### `npm start`
+#cd "$HOME"/git-sources || { printf "cd failed, exiting\n" >&2;  return 1; }
+printf "AppName: "
+read -r AppName 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+gitsource="https://github.com/king0fCode/basic-react-template.git"
+git clone "$gitsource"  "$AppName"
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+unset gitsource
+
+AppDir="$(pwd)/$AppName"
+echo "App Created  in $AppDir"
+cd "$AppDir" && npm i -y
+echo "App Dependencies Installed"
+
+echo "Please choose from the options bellow"
+echo "1) Open App directory"
+echo "2) Open App with Visual Studio Code"
+echo "3) Exit"
+
+read -r ans
+directory="1"
+code="2"
+end="3"
+
+if [ "$ans" = "$directory" ]; then
+xdg-open .
+unset ans; 
+return 1;
+
+elif [ "$ans" = "$code" ]; then
+code .
+return 1;
+
+elif [ "$ans" = "$end" ]; then
+exit
+fi
+
+unset ans
+
 
 ### `npm test`
 
